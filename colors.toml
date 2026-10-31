@@ -13,8 +13,8 @@ mode = "dark"
 
 # The moon's disc: links, focus and hover rings, bar highlights and the top of the active window border, 7.6:1.
 accent = "#eb9d52"
-# Unfocused window border: dark_background.
-hyprland_inactive_border = "dark_background"
+# Unfocused window border: muted warm sand, distinct from the active moon-gold gradient.
+hyprland_inactive_border = "dark_foreground"
 # Focused window border: accent at the top edge to bright_foreground at the bottom.
 hyprland_active_border = "accent bright_foreground 90deg"
 # Selected text and the chosen row, 1.7:1 over the page. Body text on it is 4.5:1.

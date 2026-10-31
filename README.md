@@ -1,5 +1,7 @@
 # Moonlit Sands
 
+> Recent update: inactive windows now have a visible warm-sand outline.
+
 An [Omarchy](https://omarchy.org) theme. Warm moonlight on a deep blue night sky, for working after dark. Inspired by the Arizona Desert lit by a Harvest Moon. Theme contains optional extras including custom folder icons and app templates that require additional configuration (see below). This is the night companion of [Sunlit Sands](https://github.com/Korrin-F/omarchy-sunlit-sands-theme) light theme.
 
 ![Moonlit Sands on the desktop: Zed, btop, the terminal palette and Files over a moonlit desert wallpaper](screenshots/desktop.webp)
