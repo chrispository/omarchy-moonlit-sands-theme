@@ -12,8 +12,8 @@ layout {
         pane size=2 borderless=true {
             plugin location="file:/home/chris/.config/zellij/plugins/zjstatus.wasm" {
                 color_foreground "#e0a269"
-                color_light_foreground "#b48153"
                 color_muted "#8b7d71"
+                color_dark_foreground "#9a6e45"
 
                 format_left "{mode}#[fg=blue]#[fg=cyan,italic] {command_git_branch}{tabs}"
                 format_center ""
@@ -27,25 +27,25 @@ layout {
                 border_format "{char}"
                 border_position "top"
                 mode_normal "#[fg=$foreground]#[fg=black,bg=$foreground,bold] NORMAL #[fg=$foreground]"
-                mode_locked "#[fg=yellow]#[fg=black,bg=yellow,bold] LOCKED #[fg=yellow]"
+                mode_locked "#[fg=$foreground]#[fg=black,bg=$foreground,bold] LOCKED #[fg=$foreground]"
                 mode_pane "#[fg=cyan]#[fg=black,bg=cyan,bold] PANE #[fg=cyan]"
-                mode_tab "#[fg=$light_foreground]#[fg=black,bg=$light_foreground,bold] TAB #[fg=$light_foreground]"
+                mode_tab "#[fg=$foreground]#[fg=black,bg=$foreground,bold] TAB #[fg=$foreground]"
                 mode_resize "#[fg=cyan]#[fg=black,bg=cyan,bold] RESIZE #[fg=cyan]"
                 mode_move "#[fg=cyan]#[fg=black,bg=cyan,bold] MOVE #[fg=cyan]"
                 mode_scroll "#[fg=cyan]#[fg=black,bg=cyan,bold] SCROLL #[fg=cyan]"
                 mode_session "#[fg=cyan]#[fg=black,bg=cyan,bold] SESSION #[fg=cyan]"
-                mode_tmux "#[fg=yellow]#[fg=black,bg=yellow,bold] TMUX #[fg=yellow]"
+                mode_tmux "#[fg=$foreground]#[fg=black,bg=$foreground,bold] TMUX #[fg=$foreground]"
 
                 command_git_branch_command "git branch --show-current"
                 command_git_branch_cwd "{focused_pane_cwd}"
-                command_git_branch_format "#[fg=$muted,italic]{stdout} "
+                command_git_branch_format "#[fg=cyan,italic]{stdout} "
                 command_git_branch_interval "5"
                 command_git_branch_rendermode "static"
 
                 // The active tab gets the inverted flag; inactive tabs are plain text.
-                tab_normal "#[fg=blue] {name} "
-                tab_normal_fullscreen "#[fg=blue] {name}{fullscreen_indicator} "
-                tab_normal_sync "#[fg=blue] {name}{sync_indicator} "
+                tab_normal "#[fg=$dark_foreground] {name} "
+                tab_normal_fullscreen "#[fg=$dark_foreground] {name}{fullscreen_indicator} "
+                tab_normal_sync "#[fg=$dark_foreground] {name}{sync_indicator} "
                 tab_active "#[fg=$foreground]#[fg=black,bg=$foreground,bold] {name} #[fg=$foreground]"
                 tab_active_fullscreen "#[fg=$foreground]#[fg=black,bg=$foreground,bold] {name}{fullscreen_indicator} #[fg=$foreground]"
                 tab_active_sync "#[fg=$foreground]#[fg=black,bg=$foreground,bold] {name}{sync_indicator} #[fg=$foreground]"
