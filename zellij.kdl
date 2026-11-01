@@ -1,0 +1,60 @@
+// Rounded left and right separator experiment based on spiced-moonlit-rounded.
+// The bar uses the terminal's default background so Ghostty's glass opacity
+// shows through; accent button fills remain solid.
+
+pane_frames false
+
+layout {
+    default_tab_template {
+        children
+        // Keep the border row transparent and let the status row use Ghostty's
+        // translucent default background.
+        pane size=2 borderless=true {
+            plugin location="file:/home/chris/.config/zellij/plugins/zjstatus.wasm" {
+                color_foreground "#e0a269"
+                color_light_foreground "#b48153"
+                color_muted "#8b7d71"
+
+                format_left "{mode}#[fg=blue]#[fg=cyan,italic] {command_git_branch}{tabs}"
+                format_center ""
+                format_right "{datetime}"
+                format_space ""
+                format_hide_on_overlength "true"
+                format_precedence "lcr"
+
+                border_enabled "true"
+                border_char " "
+                border_format "{char}"
+                border_position "top"
+                mode_normal "#[fg=$foreground]#[fg=black,bg=$foreground,bold] NORMAL #[fg=$foreground]"
+                mode_locked "#[fg=yellow]#[fg=black,bg=yellow,bold] LOCKED #[fg=yellow]"
+                mode_pane "#[fg=cyan]#[fg=black,bg=cyan,bold] PANE #[fg=cyan]"
+                mode_tab "#[fg=$light_foreground]#[fg=black,bg=$light_foreground,bold] TAB #[fg=$light_foreground]"
+                mode_resize "#[fg=cyan]#[fg=black,bg=cyan,bold] RESIZE #[fg=cyan]"
+                mode_move "#[fg=cyan]#[fg=black,bg=cyan,bold] MOVE #[fg=cyan]"
+                mode_scroll "#[fg=cyan]#[fg=black,bg=cyan,bold] SCROLL #[fg=cyan]"
+                mode_session "#[fg=cyan]#[fg=black,bg=cyan,bold] SESSION #[fg=cyan]"
+                mode_tmux "#[fg=yellow]#[fg=black,bg=yellow,bold] TMUX #[fg=yellow]"
+
+                command_git_branch_command "git branch --show-current"
+                command_git_branch_cwd "{focused_pane_cwd}"
+                command_git_branch_format "#[fg=$muted,italic]{stdout} "
+                command_git_branch_interval "5"
+                command_git_branch_rendermode "static"
+
+                // The active tab gets the inverted flag; inactive tabs are plain text.
+                tab_normal "#[fg=blue] {name} "
+                tab_normal_fullscreen "#[fg=blue] {name}{fullscreen_indicator} "
+                tab_normal_sync "#[fg=blue] {name}{sync_indicator} "
+                tab_active "#[fg=$foreground]#[fg=black,bg=$foreground,bold] {name} #[fg=$foreground]"
+                tab_active_fullscreen "#[fg=$foreground]#[fg=black,bg=$foreground,bold] {name}{fullscreen_indicator} #[fg=$foreground]"
+                tab_active_sync "#[fg=$foreground]#[fg=black,bg=$foreground,bold] {name}{sync_indicator} #[fg=$foreground]"
+                tab_separator " "
+
+                datetime "#[fg=$muted,bold] ◷ {format} "
+                datetime_format "%H:%M"
+                datetime_timezone "America/Denver"
+            }
+        }
+    }
+}
